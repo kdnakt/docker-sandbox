@@ -10,6 +10,16 @@ services:
     command: >
       /bin/bash -c "bash task1.sh"
 
+  task1-2:
+    build: .
+    volumes:
+      - .:/work
+    working_dir: /work
+    environment:
+      - ENV
+    command: >
+      /bin/bash -c "if [ -z $ENV ]; then echo ENV not set && exit 1; fi && echo end"
+
   task2:
     build: .
     volumes:
