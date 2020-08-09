@@ -1,0 +1,11 @@
+version: '3'
+services:
+  task1:
+    build: .
+    volumes:
+      - .:/work
+    working_dir: /work
+    environment:
+      - ENV
+    command: >
+      /bin/bash -c "bash task1.sh"
