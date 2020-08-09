@@ -9,3 +9,13 @@ services:
       - ENV
     command: >
       /bin/bash -c "bash task1.sh"
+
+  task2:
+    build: .
+    volumes:
+      - .:/work
+    working_dir: /work
+    environment:
+      - ENV
+    command: >
+      /bin/bash -c "echo ${ENV:?ENV is not set}"
